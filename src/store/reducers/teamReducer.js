@@ -38,8 +38,15 @@ const TeamReducer = (state = INITIAL_STATE, action) => {
                     return
                 }
             })
+            //Si el team está completo: 
+            if(state.team.length == 6){
+                return {
+                    ...state,
+                    message: '¡Tu equipo se encuentra completo!. Debés eliminar un integrante para poder sumar otro!',
+                };    
+            }
             //Si ya existe:
-            if(heroAlreadyExist){
+            else if(heroAlreadyExist){
                 return {
                     ...state,
                     message: '¡Éste Heroe ya se encuentra en tu Team :) !',
@@ -167,7 +174,7 @@ const TeamReducer = (state = INITIAL_STATE, action) => {
                         
                         for (var key in stats) {
 
-                            if(stats[key] > maxState.power){ //Si, el stat es más alto que mexState.power, reemplazo valores de maxState
+                            if(stats[key] > maxState.power){ //Si, el stat es más alto que maxState.power, reemplazo valores de maxState
 
                                 maxState.stat = key
                                 maxState.power = stats[key]

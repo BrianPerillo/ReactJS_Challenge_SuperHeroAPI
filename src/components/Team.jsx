@@ -38,22 +38,25 @@ const Team = (props) => {
         <Fragment>
 
             <div id="team-container" className="container">
-                {/* Alert */}
-
-
-                {/* Fin Alert */}
-
-                {/*Muestro atributo principal*/}
-
-             
-                    {/* teamContext.loading == false ?
-                            
-                        {teamContext.maxStat.stat} team */}
-            
         
                 {/*Si el equipo no está completo muestro botón para agregar personajes*/}
 
-                        {/* teamContext.heros.length < 6 ? */}
+                        { 
+                            team.length < 6 ? 
+                            <div className="col d-flex justify-content-center mt-5">
+                                <NavLink to={'/search'}
+                                style={{textDecoration: 'none', color:'white'}}>
+                                    <button className="btn btn-propio">
+                                        <a className="view-more">
+                                            <i id="add-from-home-button" className="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                                        </a>
+                                    </button>
+                                </NavLink>
+                            </div>
+                            :
+
+                                ''
+                        }
 
 
                 {/*Cargo los stats y personajes del Team*/}

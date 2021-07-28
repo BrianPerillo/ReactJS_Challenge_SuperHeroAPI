@@ -74,10 +74,19 @@ const HeroDetail = () => {
 
             <div id="main_detail_container" className="mt-5">
 
-            {showNotification ?
-                message
-                :
-                ''
+            {
+                showNotification ?
+
+                <div class="alert alert-primary alert-dismissible fade show m-auto col-md-4" role="alert">
+                    <strong >{message}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                    :
+
+                    ''
             }
             
 
@@ -85,16 +94,16 @@ const HeroDetail = () => {
                     
                     <div className="profile-card-1">
                     
-                        <div className="img" style={{height: '200px'}} >
-                            <img style={{height: '350px'}} src={hero.image.url}/>
+                        <div className="img" style={{height: '160px'}} >
+                            <img style={{height: '250px'}} src={hero.image.url}/>
                         </div>
 
-                        <div className="mid-section mid-section-detail">
-                            <div className="name mt-4">
+                        <div className="mid-section mid-section-detail" style={{margin:'140px 0px 0px 0px'}}>
+                            <div className="name">
                                 {hero.name}
                             </div>
 
-                            <div className="col description mt-3">
+                            <div className="col description mt-1">
 
                                 {/*ALIAS*/}
                                 <div id="Alias" className="col">
