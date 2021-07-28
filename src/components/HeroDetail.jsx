@@ -29,15 +29,18 @@ const HeroDetail = () => {
     const [error, setError] = useState()
     const [loading, setLoading] = useState(true)
     const [hero, setHero] = useState()
-    
+    let message = '';
+    const [showNotification, setShowNotification] = useState(false);
+
     const handleSubmit = (e) => {
         
         e.preventDefault();
         dispatch(addHero(hero));
-        
+        setShowNotification(true);
         // teamContext.add_hero(hero);
 
     }
+    
 
     const obtenerHero = async () => {
         const res = await getHero(baseUrl,id)
@@ -45,23 +48,23 @@ const HeroDetail = () => {
         setLoading(false);
     }
     
+    message = useSelector(state => state.team.message) || '';
+    
     useEffect(() => {
         
         // dispatch(selectedHero(id));
-        
-        obtenerHero();
+        let message = '';
 
+        obtenerHero();
+        
         // teamContext.getTeam() // Cada vez que se cargue este componente consulta el team    
         // teamContext.getTeamSize()
         
     }, []) // [teamContext.message]
 
-
     return ( 
 
         <Fragment>
-
-            
 
             { loading ?
 
@@ -71,6 +74,12 @@ const HeroDetail = () => {
 
             <div id="main_detail_container" className="mt-5">
 
+            {showNotification ?
+                message
+                :
+                ''
+            }
+            
 
                 <div className="col-md-7 col-lg-8 col-xl-4 p-3 m-auto">
                     

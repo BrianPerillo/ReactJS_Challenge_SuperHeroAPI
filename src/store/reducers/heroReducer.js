@@ -1,4 +1,4 @@
-import { ADD_HERO, FIND_CURRENT_HERO, FIND_SELECTED_HERO, GET_HEROS, REMOVE_HERO } from "../actions/Heros";
+import { FIND_CURRENT_HERO, FIND_SELECTED_HERO, GET_HEROS } from "../actions/Heros";
 
 const INITIAL_STATE = {
     list: [],

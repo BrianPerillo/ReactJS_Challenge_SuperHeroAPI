@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import React, {Fragment, useContext, useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-
+import { teamStats } from '../store/actions/Team';
 import Atributtes from '../components/Atributtes'
 import Card from './Card'
 import ListadoCards from '../components/ListadoCards'
@@ -18,25 +18,22 @@ import {db} from '../firebase';
 
 const Team = (props) => {
 
-    // const teamContext = useContext(TeamContext) //guardo context
+    const dispatch = useDispatch();
 
-    
-    // useEffect(() => {
+    const team = useSelector(state => state.team.team) || {}
+    const message = useSelector(state => state.team.message) || null;
 
-    //     teamContext.getTeam() // Cada vez que se cargue este componente consulta el team    
-    //     teamContext.getTeamSize()
-    //     teamContext.setMessage('')
-    //     teamContext.getStats()
-
-    // }, [teamContext.deleteHeroBool])
+    const stats = useSelector(state => state.team.teamStats) || null;
 
     useEffect(() => {
 
+        dispatch(teamStats());
+
     }, [])
 
-    const team = useSelector(state => state.team.team) || {}
     console.log(team);
-
+    console.log(stats);
+    
     return ( 
         <Fragment>
 
@@ -61,10 +58,14 @@ const Team = (props) => {
 
                 {/*Cargo los stats y personajes del Team*/}
 
-                    {/* COMPS Atributtes y .map para cargar los comps Card de los heros que haya: 
+                    {/* COMPS Atributtes y .map para cargar los comps Card de los heros que haya: */}
+                <div className='row'>
 
-                    <Atributtes/>*/}
+                    <Atributtes stats={stats}/>
 
+                    <div className="col mt-5">  
+                    
+                    <div className="row"> 
                     {
                         team.map((hero) => 
                              <Card hero={hero} teamView={true} size={'col-sm-6 col-md-6 col-xl-4 p-3'}/> //searchIn indica a la card donde tiene que buscar al hero para ver su detalle.
@@ -74,7 +75,10 @@ const Team = (props) => {
 
                         {/*Cargo los stats del equipo*/}
                             
-                   
+                        </div>
+                    </div>
+                </div> 
+
             </div>   
 
         </Fragment>

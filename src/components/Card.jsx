@@ -4,12 +4,13 @@ import {
     BrowserRouter as Router,
     Switch
 } from 'react-router-dom';
-import React, {Fragment, useContext, useEffect, useStat} from 'react'
+import React, {Fragment, useContext, useEffect, useState} from 'react'
 
 import { getHero } from '../services/Heros';
 import { removeHero } from '../store/actions/Team';
 import { selectedHero } from '../store/actions/Heros';
 import { useDispatch } from 'react-redux';
+import { teamStats } from '../store/actions/Team';
 
 // import {TeamContext} from '../context/TeamContext';
 
@@ -17,29 +18,20 @@ const Card = (props) => {
 
     const dispatch = useDispatch();
     const baseUrl = process.env.REACT_APP_SUPER_HERO_BASE_URL;
+    const [showNotification, setShowNotification] = useState(false);
     
     // const teamContext = useContext(TeamContext) //guardo context
 
     const handleOnSubmit = (e) => {
         
         e.preventDefault();
+        //Remuevo el Hero
         dispatch(removeHero(props.hero.id,props.hero.biography.alignment));
-
-        // const delete_hero = async () => {
-            
-        //     // teamContext.deleteHero(props.hero.doc_id)
-        // }
-
-        // delete_hero();
+        //Recalculo stats
+        dispatch(teamStats());
+        setShowNotification(true);
         
-        
-    }
-
-    const handleOnClick = (id) => {
-
-        dispatch(selectedHero(id));
-
-    }
+    };
 
     useEffect(() => {
 
