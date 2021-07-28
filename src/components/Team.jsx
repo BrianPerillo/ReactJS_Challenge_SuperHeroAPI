@@ -34,7 +34,7 @@ const Team = (props) => {
 
     }, [])
 
-    const team = useSelector(state => state.heros.team) || {}
+    const team = useSelector(state => state.team.team) || {}
     console.log(team);
 
     return ( 

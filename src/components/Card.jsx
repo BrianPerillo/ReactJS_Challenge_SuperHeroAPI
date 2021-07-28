@@ -7,7 +7,7 @@ import {
 import React, {Fragment, useContext, useEffect, useStat} from 'react'
 
 import { getHero } from '../services/Heros';
-import { removeHero } from '../store/actions/Heros';
+import { removeHero } from '../store/actions/Team';
 import { selectedHero } from '../store/actions/Heros';
 import { useDispatch } from 'react-redux';
 

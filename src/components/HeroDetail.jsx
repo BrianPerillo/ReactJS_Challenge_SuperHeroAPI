@@ -7,7 +7,8 @@ import {
 import React, {Fragment, useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addHero } from '../store/actions/Heros';
+// import { addHero } from '../store/actions/Heros';
+import { addHero } from '../store/actions/Team';
 import axios from 'axios';
 import {db} from '../firebase';
 import { getHero } from '../services/Heros';
