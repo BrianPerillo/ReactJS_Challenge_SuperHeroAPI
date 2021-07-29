@@ -1,16 +1,22 @@
 import React, {Fragment, useEffect, useState} from 'react'
 
+import { Redirect } from 'react-router';
+import { Route } from 'react-router';
 import axios from 'axios';
+import { logIn } from '../store/actions/Login';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+import { useSelector } from 'react-redux';
 
-const Login = (props) => {
+const Login = () => {
 
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const dispatch = useDispatch();
+
+    const logged = useSelector(state => state.log.logged)
 
     const validate = values => {
         const errors = {};
-        
+        // mail: challenge@alkemy.org - password: react
         if (!values.email) {
             errors.email = 'Email Requerido';
         }
@@ -28,38 +34,41 @@ const Login = (props) => {
         },
         validate,
         onSubmit: values => {
-            login(values)
+            // login(values)
+            dispatch(logIn(values));
+
         },
     });
 
-    const login = async (values) => {
-        // mail: challenge@alkemy.org - password: react
-        try {
-            const res = await axios.post('http://challenge-react.alkemy.org/',  values)
-            props.setLogin(true)
-            localStorage.setItem('token', res.data.token)
-        }
-        catch (error) {
-            if (error.response){
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-
-        }
-        
-    } 
-}
-
     useEffect(() => {
 
-        
 
     }, [])
 
+    const log_error = useSelector(state => state.log.error_values)
+    console.log('aca');
+    console.log(log_error.response_data.error);
+
     return ( 
 
-        <Fragment>
+        logged ? 
 
+        <Redirect to="/"/>
+        
+        :
+
+        <Fragment>
+            {
+                typeof log_error.response_data.error !== "undefined" ?
+                
+                <div class="alert alert-danger alert-dismissible fade show m-auto col-md-4" role="alert">
+                    <strong>{log_error.response_data.error}</strong>
+                </div>
+                    
+                :
+
+                ''
+            }
             <div id="login_form" className="container">
                 
                 <h2>Log In</h2>
@@ -92,7 +101,7 @@ const Login = (props) => {
                     <div>{formik.errors.password ? <p>{formik.errors.password}</p> : null}</div>
 
                     <div id="login-button" className="d-flex justify-content-center">
-                        <button className="btn btn-primary" type="submit" >Log In</button>
+                        <button className="btn btn-primary" type="submit">Log In</button>
                     </div>
 
                 </form>
