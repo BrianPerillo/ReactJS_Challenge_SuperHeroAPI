@@ -13,24 +13,36 @@ const SearchHero = () => {
     const heros = useSelector(state => state.heros.list) || {}
     const error_values = useSelector(state => state.heros.error_values) || {}
     const [loading, setLoading] = useState(true)
+    const [firstTime, setFirstTime] = useState(true)
 
     var result = null;  
 
 
     useEffect(() => {
 
-        dispatch(getHeros())
-        .then(()=> setLoading(false))
+ 
         
     }, [])
 
-    if(loading == true){
+    if(firstTime){
+        result = 
+        <Fragment>
+        <div className='col'>
+            <div className="d-flex justify-content-center" style={{height:'40vh',alignItems:'center'}}>
+                <i style={{color:'#e5e5e5'}} class="fas fa-search fa-10x" aria-hidden="true"></i>
+            </div>
+            <div className="d-flex justify-content-center">
+                <p style={{color:'#b9b9b9', fontSize:'30px'}}>Buscar Héroe</p>
+            </div>
+        </div>
+    </Fragment>
+    }
+    else if(loading == true){
         result = <Alert color='secondary' message={'Loading...'} gifUrl="imgs/loading-gif-orange-8.gif"/> 
     }
     else if(heros.length > 0){
         result = <ListadoCards heros={heros}/>   
     }
-
     else if(heros.length == 0){
         result = <Alert color='danger' message='No se encontraron resultados :('/>
     }
@@ -46,7 +58,7 @@ const SearchHero = () => {
         
         <Fragment> 
 
-                <FormHero loading={loading} setLoading={setLoading}/>
+                <FormHero setFirstTime={setFirstTime} loading={loading} setLoading={setLoading}/>
                 
                 { result }
 

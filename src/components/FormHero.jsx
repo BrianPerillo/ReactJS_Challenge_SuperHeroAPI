@@ -13,21 +13,20 @@ const FormHero = (props) => {
 
 
     const handleOnChange = async (e) => {
-        
-        props.setLoading(true)
 
+        props.setLoading(true)
+        props.setFirstTime(false)
         name = e.target.value
 
         //Si el texto del input es mayor a 0 busco hero por nombre:
         if(name.length > 0){
+            
             dispatch(findCurrentHero(name))
             .then(()=>props.setLoading(false))
+
         }//Si el texto del input es 0 porque borraron lo que escribieron x ejemplo, vuelvo a cargar en la lista el resultado inicial (los 1eros 8 Heros)
         else{
-            setDisableInput(true);
-            dispatch(getHeros())
-            .then(()=>props.setLoading(false))
-            .then(()=>setDisableInput(false))
+            props.setFirstTime(true)
         }
 
         
@@ -62,4 +61,3 @@ const FormHero = (props) => {
 }
  
 export default FormHero;
-
