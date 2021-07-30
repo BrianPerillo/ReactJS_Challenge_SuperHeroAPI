@@ -1,8 +1,6 @@
-import React, {Fragment, useEffect, useState} from 'react'
+import React, {Fragment, useEffect} from 'react'
 
 import { Redirect } from 'react-router';
-import { Route } from 'react-router';
-import axios from 'axios';
 import { logIn } from '../store/actions/Login';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
@@ -13,6 +11,7 @@ const Login = () => {
     const dispatch = useDispatch();
 
     const logged = useSelector(state => state.log.logged)
+    const token = useSelector(state => state.log.token)
 
     const validate = values => {
         const errors = {};
@@ -45,8 +44,9 @@ const Login = () => {
 
     }, [])
 
+    console.log("token");
+    console.log(token);
     const log_error = useSelector(state => state.log.error_values)
-    console.log('aca');
     console.log(log_error.response_data.error);
 
     return ( 

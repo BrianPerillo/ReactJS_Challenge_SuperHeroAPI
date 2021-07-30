@@ -2,11 +2,15 @@ import React, {Fragment, useContext} from 'react'
 
 import { useSelector } from 'react-redux';
 
-
 const Atributtes = (props) => {
 
 
     const stats = props.stats;
+    let teamLength = props.teamLength;
+
+    if(teamLength == 0){
+        teamLength = 1; //Paar que no muestre NaN en caso de ser 0 el teamLength
+    }
 
     return ( 
         
@@ -35,8 +39,8 @@ const Atributtes = (props) => {
 
                         <div id="stats-second-col" className="col">
                             
-                            <p><strong>Peso promedio: {stats.stats.weight} kg </strong></p>
-                            <p><strong>Altura promedio: {stats.stats.height} cm </strong> </p>
+                            <p><strong>Peso promedio: {Math.round(stats.stats.weight/teamLength)} kg </strong></p>
+                            <p><strong>Altura promedio: {Math.round(stats.stats.height/teamLength)} cm </strong> </p>
                         </div>
                         
                     </div>

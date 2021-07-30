@@ -9,7 +9,7 @@ const Search = () => {
     return (                 
     
         <Fragment>
-            <NavBar></NavBar>
+            <NavBar/>
             <SearchHero/>
             <Footer/>
         </Fragment> );

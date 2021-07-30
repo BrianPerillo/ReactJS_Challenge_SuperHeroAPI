@@ -1,9 +1,13 @@
-import { FIND_CURRENT_HERO, FIND_SELECTED_HERO, GET_HEROS } from "../actions/Heros";
+import { FIND_CURRENT_HERO, FIND_SELECTED_HERO, GET_HEROS, SEARCH_ERROR } from "../actions/Heros";
 
 const INITIAL_STATE = {
     list: [],
-    // filteredHeros: [],
     selected: null,
+    error_values: {
+        response_data:'',
+        response_status:'',
+        response_headers:'',
+    },
 };
 
 const HeroReducer = (state = INITIAL_STATE, action) => {
@@ -14,19 +18,34 @@ const HeroReducer = (state = INITIAL_STATE, action) => {
 
             return {
                 ...state,
-                list: action.list //pedido axios por los primeros 8 heros
+                list: action.list,
             };
         case FIND_CURRENT_HERO:
             // console.log(action.list[0]);
-            return {
-                ...state,
-                list: action.list[0] //pedido axios por el name del Hero
-            };
+            if(typeof action.list[0] !== 'undefined'){
+                return {
+                    ...state,
+                    list: action.list[0],
+                };
+            }
+            else {
+                return {
+                    ...state,
+                    list: [],
+                };
+            }
+           
         case FIND_SELECTED_HERO:   
              return {
                 ...state,
                 selected: action.hero, //guardo el hero seleccionado (objeto) para en la vista detalle mostrar solo el hero almacendo en este atributo
             };
+
+        case SEARCH_ERROR:   
+            return {
+               ...state,
+               error_values: action.error_values,
+        };
             
         default:
           return { ...state };

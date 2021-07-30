@@ -10,7 +10,7 @@ const HeroDetailView = () => {
     return ( 
         
         <Fragment>
-            <NavBar></NavBar>
+            <NavBar/>
             <HeroDetail/>
             <Footer/>
         </Fragment>

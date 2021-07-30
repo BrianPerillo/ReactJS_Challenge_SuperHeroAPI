@@ -1,26 +1,15 @@
-import {
-    Link,
-    Route,
-    BrowserRouter as Router,
-    Switch
-} from 'react-router-dom';
-import React, {Fragment, useContext, useEffect, useState} from 'react'
+import React, {Fragment, useEffect, useState} from 'react'
 
-import { getHero } from '../services/Heros';
+import {Link,} from 'react-router-dom';
 import { removeHero } from '../store/actions/Team';
-import { selectedHero } from '../store/actions/Heros';
-import { useDispatch } from 'react-redux';
 import { teamStats } from '../store/actions/Team';
-
-// import {TeamContext} from '../context/TeamContext';
+import { useDispatch } from 'react-redux';
 
 const Card = (props) => {
 
     const dispatch = useDispatch();
-    const baseUrl = process.env.REACT_APP_SUPER_HERO_BASE_URL;
     const [showNotification, setShowNotification] = useState(false);
     
-    // const teamContext = useContext(TeamContext) //guardo context
 
     const handleOnSubmit = (e) => {
         
@@ -35,7 +24,7 @@ const Card = (props) => {
 
     useEffect(() => {
 
-        // teamContext.setMessage('')
+
 
     }, [])
 

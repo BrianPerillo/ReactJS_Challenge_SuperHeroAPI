@@ -12,6 +12,7 @@ const INITIAL_STATE = {
         response_headers:'',
     },
     logged: false,
+    token: '',
 
 }
 
@@ -26,6 +27,7 @@ const LogInReducer = (state = INITIAL_STATE, action) => {
                 ...state, 
                 user_values: action.user_values,
                 logged: true,
+                token: localStorage.getItem('token'),
 
             }
             

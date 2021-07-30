@@ -1,29 +1,20 @@
-import {
-    Link,
-    NavLink,
-    Route,
-    BrowserRouter as Router,
-    Switch
-} from 'react-router-dom';
-import React, {Fragment, useContext, useEffect, useState} from 'react'
+import React, {Fragment, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { teamStats } from '../store/actions/Team';
+
 import Atributtes from '../components/Atributtes'
 import Card from './Card'
-import ListadoCards from '../components/ListadoCards'
-import {db} from '../firebase';
-
-// import {TeamContext} from '../context/TeamContext';
-
+import {NavLink} from 'react-router-dom';
+import { teamStats } from '../store/actions/Team';
 
 const Team = (props) => {
 
     const dispatch = useDispatch();
 
     const team = useSelector(state => state.team.team) || {}
-    const message = useSelector(state => state.team.message) || null;
 
     const stats = useSelector(state => state.team.teamStats) || null;
+    
+    const teamLength = team.length;
 
     useEffect(() => {
 
@@ -60,24 +51,19 @@ const Team = (props) => {
                         }
 
 
-                {/*Cargo los stats y personajes del Team*/}
-
-                    {/* COMPS Atributtes y .map para cargar los comps Card de los heros que haya: */}
                 <div className='row'>
 
-                    <Atributtes stats={stats}/>
+                    <Atributtes stats={stats} teamLength={teamLength}/>
 
                     <div className="col mt-5">  
                     
                     <div className="row"> 
                     {
                         team.map((hero) => 
-                             <Card hero={hero} teamView={true} size={'col-sm-6 col-md-6 col-xl-4 p-3'}/> //searchIn indica a la card donde tiene que buscar al hero para ver su detalle.
+                             <Card hero={hero} teamView={true} size={'col-sm-6 col-md-6 col-xl-4 p-3'}/>
                         )
                     
                     }
-
-                        {/*Cargo los stats del equipo*/}
                             
                         </div>
                     </div>

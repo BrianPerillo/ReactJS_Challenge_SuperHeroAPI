@@ -1,37 +1,11 @@
-import {
-    Link,
-    Route,
-    BrowserRouter as Router,
-    Switch
-} from 'react-router-dom';
-import React, {Fragment, useEffect, useState} from 'react'
+import React, {Fragment, useEffect} from 'react'
 
 import Card from '../components/Card';
 
 const ListadoCards = (props) => {
 
-    const [heros, setHeros] = useState([]);
-    const [trajoDatos, setTrajoDatos] = useState(false);
-    const [category, setCategory] = useState();
-    const [category_id, setCategory_id] = useState();
-    // const {id} = useParams();
 
     useEffect(() => {
-        
-        let pedidoHeros = new Promise((resolve, reject)=>{
-
-            setTimeout(()=> {
-                const heros = props.heros
-                resolve(heros) 
-            },0)
-            
-            })
-            .then((heros)=>{
-                console.log("heros_listado:");
-                console.log(heros);
-                setHeros(heros);
-                setTrajoDatos(true);
-            })
 
 
         }, [])

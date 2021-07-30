@@ -1,21 +1,10 @@
-import {
-    Link,
-    Route,
-    BrowserRouter as Router,
-    Switch
-} from 'react-router-dom';
 import React, {Fragment, useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-// import { addHero } from '../store/actions/Heros';
+import Alert from './Alert';
 import { addHero } from '../store/actions/Team';
-import axios from 'axios';
-import {db} from '../firebase';
 import { getHero } from '../services/Heros';
-import { selectedHero } from '../store/actions/Heros';
 import {useParams} from 'react-router-dom';
-
-// import {TeamContext} from '../context/TeamContext';
 
 const HeroDetail = () => {
 
@@ -23,13 +12,9 @@ const HeroDetail = () => {
     const baseUrl = process.env.REACT_APP_SUPER_HERO_BASE_URL;
     
     const {id} = useParams();
-    // const hero = useSelector(state => state.heros.selected) || []
-    // const teamContext = useContext(TeamContext) //guardo context
-    const [detail, setDetail] = useState([])
-    const [error, setError] = useState()
     const [loading, setLoading] = useState(true)
     const [hero, setHero] = useState()
-    let message = '';
+
     const [showNotification, setShowNotification] = useState(false);
 
     const handleSubmit = (e) => {
@@ -48,12 +33,12 @@ const HeroDetail = () => {
         setLoading(false);
     }
     
-    message = useSelector(state => state.team.message) || '';
+    const message = useSelector(state => state.team.message) || '';
     
     useEffect(() => {
         
         // dispatch(selectedHero(id));
-        let message = '';
+
 
         obtenerHero();
         
@@ -68,7 +53,7 @@ const HeroDetail = () => {
 
             { loading ?
 
-            <p>Loading...</p>
+                <Alert color='secondary' message={'Loading...'} gifUrl="https://gifimage.net/wp-content/uploads/2018/04/loading-gif-orange-8.gif"/>
 
             :
 

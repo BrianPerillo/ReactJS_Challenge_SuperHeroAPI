@@ -1,13 +1,21 @@
 import { Redirect } from 'react-router-dom'
 import { Route } from "react-router";
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 const PrivateRoute = ({component:Component, ...props}) => {
 
-    const logged = useSelector(state => state.log.logged)
+    let hasToken = false;
 
-    return <Route {...props}>{logged ? <Component/> : <Redirect to="/login" />}</Route>;
+    const token = localStorage.getItem('token'); // Chequeo si está el token en localStorage en lugar de consultarlo al Estado. Si recarga la página no tiene
+    // que loguearse de nuevo
+
+    if(token !== null){
+         hasToken = true
+    }
+    else{
+         hasToken = false
+    }
+
+    return <Route {...props}>{hasToken ? <Component/> : <Redirect to="/login" />}</Route>;
 
 }
  

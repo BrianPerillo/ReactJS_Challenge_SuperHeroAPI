@@ -1,53 +1,53 @@
-import {
-    Link,
-    Route,
-    BrowserRouter as Router,
-    Switch
-} from 'react-router-dom';
 import React, {Fragment, useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
+import Alert from './Alert';
 import FormHero from './FormHero'
 import ListadoCards from './ListadoCards'
-import Login from './Login';
-import axios from 'axios';
-import { getAllHeros } from '../services/Heros';
 import { getHeros } from '../store/actions/Heros';
 
 const SearchHero = () => {
 
     const dispatch = useDispatch();
 
-    const baseUrl = process.env.REACT_APP_SUPER_HERO_BASE_URL;
-
-    // const [heros, setHeros] = useState([]);
+    const heros = useSelector(state => state.heros.list) || {}
+    const error_values = useSelector(state => state.heros.error_values) || {}
     const [loading, setLoading] = useState(true)
 
-    const [loadFirsts, setLoadFirsts] = useState(false)
+    var result = null;  
+
 
     useEffect(() => {
 
-        dispatch(getHeros());
+        dispatch(getHeros())
+        .then(()=> setLoading(false))
         
     }, [])
 
-    const heros = useSelector(state => state.heros.list) || {}
+    if(heros.length > 0){
+        result = <ListadoCards heros={heros}/>   
+    }
+    else if(loading == true){
+        result = <Alert color='secondary' message={'Loading...'} gifUrl="https://gifimage.net/wp-content/uploads/2018/04/loading-gif-orange-8.gif"/> 
+    }
+    else if(heros.length == 0){
+        result = <Alert color='danger' message='No se encontraron resultados :('/>
+    }
+    else if(typeof error_values.response_data.error !== "undefined"){
+        result = <Alert color='danger' message={error_values.response_data.error}/> 
+    }
+
+
+    console.log(heros.length);
+    
     
     return ( 
         
         <Fragment> 
 
-                <FormHero setLoadFirsts={setLoadFirsts} loadFirsts={loadFirsts}/>
+                <FormHero/>
                 
-                {
-                    heros.length > 0 ?
-                    
-                        <ListadoCards heros={heros}/> //searchIn indica a la card donde tiene que buscar al hero para ver su detalle.
-                    
-                    : 
-
-                        <p>Loading ...</p>
-                }
+                { result }
 
         </Fragment>
 

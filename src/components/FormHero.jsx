@@ -1,32 +1,31 @@
-import {
-    Link,
-    Route,
-    BrowserRouter as Router,
-    Switch
-} from 'react-router-dom';
-import React, {Fragment, useEffect, useState} from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React, {Fragment, useEffect} from 'react'
 
-import ListadoCards from './ListadoCards'
-import axios from 'axios';
 import { findCurrentHero } from '../store/actions/Heros';
+import { getHeros } from '../store/actions/Heros';
+import { useDispatch } from 'react-redux';
 
-// import {getAllHeros, getHero} from '../services/Hero';
-
-
-const FormHero = (props) => {
+const FormHero = () => {
 
     const dispatch = useDispatch();
 
-    const [baseUrl, setBaseUrl] = useState(process.env.REACT_APP_SUPER_HERO_BASE_URL);
-    const [name, setName] = useState('');
+
+    let name = '';
 
 
     const handleOnChange = async (e) => {
     
-        const name = e.target.value
-        dispatch(findCurrentHero(name));
+        name = e.target.value
 
+        //Si el texto del input es mayor a 0 busco hero por nombre:
+        if(name.length > 0){
+            dispatch(findCurrentHero(name));
+        }//Si el texto del input es 0 porque borraron lo que escribieron x ejemplo, vuelvo a cargar en la lista el resultado inicial (los 1eros 8 Heros)
+        else{
+            dispatch(getHeros())
+        }
+
+        
+        
     }
     
     useEffect(() => {

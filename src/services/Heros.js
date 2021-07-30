@@ -24,15 +24,8 @@ export const getHerosByName = async (baseUrl, name) => {
     
     const res = await axios.get(baseUrl + name)
     .then(res => list.push(res.data.results))
-    // return console.log(res.data.results);
     return list;
     
-    // .then(
-    //     res => res.data.response == 'success' ?
-    //         list.push(res.data)
-    //     :
-    //         list = []
-    //     )
 
 }
 
