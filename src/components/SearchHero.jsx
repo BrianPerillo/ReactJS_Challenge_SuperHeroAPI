@@ -28,7 +28,7 @@ const SearchHero = () => {
         result = <ListadoCards heros={heros}/>   
     }
     else if(loading == true){
-        result = <Alert color='secondary' message={'Loading...'} gifUrl="https://gifimage.net/wp-content/uploads/2018/04/loading-gif-orange-8.gif"/> 
+        result = <Alert color='secondary' message={'Loading...'} gifUrl="imgs/loading-gif-orange-8.gif"/> 
     }
     else if(heros.length == 0){
         result = <Alert color='danger' message='No se encontraron resultados :('/>

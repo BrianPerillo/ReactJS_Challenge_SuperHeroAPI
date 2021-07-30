@@ -5,7 +5,7 @@ const Alert = (props) => {
     const color = props.color;
     const message = props.message;
     const gifUrl = props.gifUrl; 
-
+    console.log(gifUrl);
     const clase = "alert alert-" + color + " alert-dismissible fade show m-auto col-md-4"
 
     return ( 
