@@ -27,15 +27,15 @@ const SearchHero = () => {
     if(firstTime){
         result = 
         <Fragment>
-        <div className='col'>
-            <div className="d-flex justify-content-center" style={{height:'40vh',alignItems:'center'}}>
-                <i style={{color:'#e5e5e5'}} class="fas fa-search fa-10x" aria-hidden="true"></i>
+            <div className='col'>
+                <div className="d-flex justify-content-center" style={{height:'40vh',alignItems:'center'}}>
+                    <i style={{color:'#e5e5e5'}} class="fas fa-search fa-10x" aria-hidden="true"></i>
+                </div>
+                <div className="d-flex justify-content-center">
+                    <p style={{color:'#b9b9b9', fontSize:'30px'}}>Buscar Héroe</p>
+                </div>
             </div>
-            <div className="d-flex justify-content-center">
-                <p style={{color:'#b9b9b9', fontSize:'30px'}}>Buscar Héroe</p>
-            </div>
-        </div>
-    </Fragment>
+        </Fragment>
     }
     else if(loading == true){
         result = <Alert color='secondary' message={'Loading...'} gifUrl="imgs/loading-gif-orange-8.gif"/> 

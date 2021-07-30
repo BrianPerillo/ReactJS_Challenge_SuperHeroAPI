@@ -24,7 +24,7 @@ const FormHero = (props) => {
             dispatch(findCurrentHero(name))
             .then(()=>props.setLoading(false))
 
-        }//Si el texto del input es 0 porque borraron lo que escribieron x ejemplo, vuelvo a cargar en la lista el resultado inicial (los 1eros 8 Heros)
+        }
         else{
             props.setFirstTime(true)
         }
