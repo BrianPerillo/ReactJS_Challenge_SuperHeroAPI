@@ -9,7 +9,7 @@ const Atributtes = (props) => {
     let teamLength = props.teamLength;
 
     if(teamLength == 0){
-        teamLength = 1; //Paar que no muestre NaN en caso de ser 0 el teamLength
+        teamLength = 1; //Para que no muestre NaN en caso de ser 0 el teamLength
     }
 
     return ( 

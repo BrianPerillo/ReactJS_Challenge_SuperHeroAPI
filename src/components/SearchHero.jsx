@@ -24,12 +24,13 @@ const SearchHero = () => {
         
     }, [])
 
-    if(heros.length > 0){
-        result = <ListadoCards heros={heros}/>   
-    }
-    else if(loading == true){
+    if(loading == true){
         result = <Alert color='secondary' message={'Loading...'} gifUrl="imgs/loading-gif-orange-8.gif"/> 
     }
+    else if(heros.length > 0){
+        result = <ListadoCards heros={heros}/>   
+    }
+
     else if(heros.length == 0){
         result = <Alert color='danger' message='No se encontraron resultados :('/>
     }
@@ -38,14 +39,14 @@ const SearchHero = () => {
     }
 
 
-    console.log(heros.length);
+    console.log(loading);
     
     
     return ( 
         
         <Fragment> 
 
-                <FormHero/>
+                <FormHero loading={loading} setLoading={setLoading}/>
                 
                 { result }
 
