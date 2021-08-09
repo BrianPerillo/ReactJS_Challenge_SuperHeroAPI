@@ -28,6 +28,10 @@ h3{
  text-align:center;
 }
 
+header nav {
+  display: flex;
+  justify-content: center;
+}
 
 header nav div .menu {
     float:left;
@@ -216,6 +220,7 @@ header nav div .menu li ul li a:hover {
 #icon-search {
   display: flex;
   align-items: center;
+  justify-content:center;
   /* background-color: #cfcfcf; */
   background-color: #3d3d3d;
   color: white;
@@ -223,4 +228,5 @@ header nav div .menu li ul li a:hover {
   position: relative;
   left: 2px;
   cursor: pointer;
+  width: 50px;
 }

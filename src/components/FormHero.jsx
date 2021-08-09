@@ -96,10 +96,10 @@ const FormHero = (props) => {
                 <form className="col-md-8 mx-auto m-4">
                     <div className="row justify-content-center">
                         <div className="col-md-5 mr-2"> 
-                            <form className="row" action="" onSubmit={e => handleOnSubmit(e)}>
-                                <i id="icon-search" class="col-md-1 my-2 fa fa-search" aria-hidden="true" onClick={()=>handleOnClick()}></i>
+                            <form className="row d-flex justify-content-center" action="" onSubmit={e => handleOnSubmit(e)}>
+                                <i id="icon-search" class="my-2 fa fa-search" aria-hidden="true" onClick={()=>handleOnClick()}></i>
                                 <input id="search-input" 
-                                    className="col-md-11 form-control my-2 p-2" 
+                                    className="col-9 col-sm-8 col-md-9 form-control my-2 p-2" 
                                     type="text" 
                                     name="name" 
                                     placeholder="Buscar por Nombre" 

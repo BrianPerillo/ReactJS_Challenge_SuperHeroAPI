@@ -16,7 +16,7 @@ const NavBar = (props) => {
 
                     <nav className="row">
 
-                        <div className="col-md-2">
+                        <div className="col-1 ml-3 mt-3">
                             <h1 hidden></h1>
                         
                             <div style={{display:'flex', height:'100%', justifyContent:'center', alignItems:'center'}}> {/*Sección Logo*/}
@@ -28,7 +28,7 @@ const NavBar = (props) => {
                             </div>
                         </div>
 
-                        <div id="categorias" className="col-md-8" style={{display:'flex', alignContent:'center', justifyContent:'center'}}>
+                        <div id="categorias" className="col-11 col-md-7" style={{display:'flex', alignContent:'center', justifyContent:'center'}}>
 
                             <ul className="menu menu m-0">
                             <NavLink to={`/`}><li className=""> Team
@@ -46,7 +46,7 @@ const NavBar = (props) => {
 
                         </div>
 
-                        <div className="col-md-2">
+                        <div className="col-1 col-md-2">
 
                             <div style={{display:'flex', height:'100%', justifyContent:'center', alignItems:'center'}}>
 
