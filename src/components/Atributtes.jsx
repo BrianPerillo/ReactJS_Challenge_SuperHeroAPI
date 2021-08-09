@@ -16,7 +16,7 @@ const Atributtes = (props) => {
         
         <Fragment>
             
-            <div id="atributos" className='col-md-3'>
+            <div id="atributos" className='col-md-3 col-lg-2 col-xl-2'>
 
                 <div className="col">
                     

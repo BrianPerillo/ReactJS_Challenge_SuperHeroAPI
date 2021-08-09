@@ -9,7 +9,7 @@ const Home = () => {
     return ( 
 
         <Fragment>
-            <NavBar></NavBar>
+            <NavBar/>
             <Team/>
             <Footer/>
         </Fragment>

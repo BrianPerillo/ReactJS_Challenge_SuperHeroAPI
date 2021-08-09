@@ -28,49 +28,47 @@ const Team = (props) => {
     return ( 
         <Fragment>
 
-            <div id="team-container" className="container">
-        
-                {/*Si el equipo no está completo muestro botón para agregar personajes*/}
+            <div className="row">
 
-                        { 
-                            team.length < 6 ? 
-                            <div className="col d-flex justify-content-center mt-5">
-                                <NavLink to={'/search'}
-                                style={{textDecoration: 'none', color:'white'}}>
-                                    <button className="btn btn-propio">
-                                        <a className="view-more">
-                                            <i id="add-from-home-button" className="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
-                                        </a>
-                                    </button>
-                                </NavLink>
-                            </div>
-                            
-                            :
+                <Atributtes stats={stats} teamLength={teamLength}/>
+           
+                <div id="team-container" className="container">
+            
+                    {/*Si el equipo no está completo muestro botón para agregar personajes*/}
 
-                                ''
+                            { 
+                                team.length < 6 ? 
+                                <div className="col d-flex justify-content-center mt-5">
+                                    <NavLink to={'/search'}
+                                    style={{textDecoration: 'none', color:'white'}}>
+                                        <i id="add-from-home-button" className="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                                    </NavLink>
+                                </div>
+                                
+                                :
+
+                                    ''
+                            }
+
+
+                    <div className='row'>
+
+                        <div className="col mt-5">  
+                        
+                        <div className="row"> 
+                        {
+                            team.map((hero) => 
+                                <Card hero={hero} teamView={true} size={'col-sm-6 col-md-6 col-xl-3 p-3'}/>
+                            )
+                        
                         }
-
-
-                <div className='row'>
-
-                    <Atributtes stats={stats} teamLength={teamLength}/>
-
-                    <div className="col mt-5">  
-                    
-                    <div className="row"> 
-                    {
-                        team.map((hero) => 
-                             <Card hero={hero} teamView={true} size={'col-sm-6 col-md-6 col-xl-4 p-3'}/>
-                        )
-                    
-                    }
-                            
+                                
+                            </div>
                         </div>
-                    </div>
-                </div> 
+                    </div> 
 
-            </div>   
-
+                </div>   
+        </div>
         </Fragment>
 
 

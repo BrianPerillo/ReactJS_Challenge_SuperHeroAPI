@@ -2,7 +2,8 @@
   .profile-card-1 {
     /* width: 300px; */
     height: 100%;
-    background: white;
+    /* background: white; */
+    background: #2a2a2a;
     margin: 0 auto;
     border-radius: 10px;
     text-align: center;
@@ -14,7 +15,8 @@
   .profile-card-1 .view-more {
     position: relative;
     /* top: calc(30.5% - .5em); */
-    top:7px;
+    /* top:7px; */
+    top: -26px;
     left: calc(50% - .5em);
     z-index: 2;
     color: #f9400b;
@@ -41,26 +43,27 @@
   .profile-card-1 .mid-section {
   /*position: absolute;*/
     /* height: 200px; */
+    color: rgb(248, 248, 248);
     width: 100%;
     top: 200px;
     left: 0;
     padding: 0px 20px 0;
     box-sizing: border-box;
-    background: white;
+    background: #2a2a2a;
     z-index: 10000000;
   }
   .profile-card-1 .mid-section .name {
-    color: #333333;
+    /* color: #333333; */
     font-size: 1.4em;
-    padding-top: 5px;
-    background: rgba(255, 255, 255, 0.1);
+    /* padding-top: 5px; */
+    /* background: rgba(255, 255, 255, 0.1); */
     font-weight: bold;
   }
   .profile-card-1 .mid-section .description {
-    color: gray;
+    /* color: gray; */
     font-size: 0.9em;
     padding-bottom: 5px;
-    background: rgba(255, 255, 255, 0.1);
+    /* background: rgba(255, 255, 255, 0.1); */
   }
   .profile-card-1 .mid-section .description a {
     color: inherit;
@@ -94,19 +97,19 @@
     font-weight: normal;
   }
   .profile-card-1 .img {
-    height: 150px;
+    height: 170px;
     width: 100%;
-    background-image: linear-gradient(#ff7b53, #f9400b), url("https://static.pexels.com/photos/21014/pexels-photo-medium.jpg");
-    padding: 25px;
+    /* background-image: linear-gradient(#ff7b53, #f9400b), url("https://static.pexels.com/photos/21014/pexels-photo-medium.jpg"); */
+
     box-sizing: border-box;
     position: relative;
   }
   .profile-card-1 .img img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
     /* width: 68%; */
-    height: 170%;
-    padding: 3px;
-    border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.6);
+    height: 100%;
     /*position: absolute;*/
     left: calc(50% - 84px);
     top: 26px;

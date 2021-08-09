@@ -5,6 +5,7 @@ import Alert from './Alert';
 import FormHero from './FormHero'
 import ListadoCards from './ListadoCards'
 import { getHeros } from '../store/actions/Heros';
+import { useParams } from 'react-router';
 
 const SearchHero = () => {
 
@@ -23,6 +24,8 @@ const SearchHero = () => {
  
         
     }, [])
+
+    console.log(heros);
 
     if(firstTime){
         result = 

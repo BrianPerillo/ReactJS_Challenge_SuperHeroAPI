@@ -20,7 +20,7 @@ const INITIAL_STATE = {
             power:null
         },    
     },
-    message: 'a',
+    message: '',
 }
 
 let heroAlreadyExist = false;

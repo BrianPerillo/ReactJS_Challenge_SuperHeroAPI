@@ -47,7 +47,7 @@ const Card = (props) => {
                     </Link>
                     {/* <div className="popup"></div> */}
                     <div className="mid-section">
-                        <div className="name mt-4">
+                        <div className="name mt-2">
                             {props.hero.name}
                         </div>
                         {/* <div className="col mt-1">
