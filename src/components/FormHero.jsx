@@ -6,9 +6,8 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 
 const FormHero = (props) => {
-
-
-
+    console.log("props.search");
+console.log(props.search);
     const dispatch = useDispatch();
 
     const [name, setName] = useState('')
@@ -20,42 +19,63 @@ const FormHero = (props) => {
 
     }
 
+    //HandleOnKey para evitar cambio de url al presionar Enter (poder aplicar el  e.preventDefault si el user da Enter)
     const handleOnKey = (e) => {
         
         console.log(e.which);
 
-        if(e.which==13){
-            props.setLoading(true)
-            props.setFirstTime(false)
-            e.preventDefault();
-
-            if(name.length > 0){
-                
-                console.log(name);console.log(name);console.log(name);
-                dispatch(findCurrentHero(name))
-                .then(()=>props.setLoading(false))
-
+        //Si hay que buscar un pokemon: 
+        if(props.search == 'pokemon'){
+            if(e.which==13){
+                e.preventDefault();
+                console.log('BUSCAR POKEMON');
             }
             else{
-                props.setFirstTime(true)
+                console.log('BUSCAR POKEMON');
             }
         }
+        //Si no hay que buscar un pokemon (o sea hay que buscar un Hero): 
+        else{
+            if(e.which==13){
+                props.setLoading(true)
+                props.setFirstTime(false)
+                e.preventDefault();
+    
+                if(name.length > 0){
+                    
+                    console.log(name);console.log(name);console.log(name);
+                    dispatch(findCurrentHero(name))
+                    .then(()=>props.setLoading(false))
+    
+                }
+                else{
+                    props.setFirstTime(true)
+                }
+            }
+        }
+        
 
     }
 
     const handleOnClick = (e) => {
 
-            if(name.length > 0){
-                props.setLoading(true)
-                props.setFirstTime(false)
-                console.log(name);console.log(name);console.log(name);
-                dispatch(findCurrentHero(name))
-                .then(()=>props.setLoading(false))
-
+            if(props.search == 'pokemon'){
+                console.log('BUSCAR POKEMON');
             }
             else{
-                props.setFirstTime(true)
+                if(name.length > 0){
+                    props.setLoading(true)
+                    props.setFirstTime(false)
+                    console.log(name);console.log(name);console.log(name);
+                    dispatch(findCurrentHero(name))
+                    .then(()=>props.setLoading(false))
+    
+                }
+                else{
+                    props.setFirstTime(true)
+                }
             }
+
         
 
     }

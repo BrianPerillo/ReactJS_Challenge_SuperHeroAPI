@@ -8,33 +8,46 @@ body {
 
 #choose-poketeam{
 
-  background-color:#FFFFFF;
+  background-color:rgba(211, 44, 44, 0.904);
 
 }
 #choose-poketeam:hover{
 
-  background-color: rgb(218, 40, 40);
+  background-color: rgb(211, 44, 44);
+  transition: all 150ms;
 
-}
-#choose-poketeam:hover img{filter:grayscale(1);
-  filter:none
 }
 #choose-poketeam img{
   filter:grayscale(0.3);
+  width: 14vw;
 }
+
+#choose-poketeam:hover img{filter:grayscale(1);
+  filter:none;
+  width: 17vw;
+  transition: all 250ms
+}
+
 
 #choose-super-hero-team{
 
-  background-color:#FFFFFF;
+  background-color:#353535ec;
 
 }
 #choose-super-hero-team:hover{
 
   background-color:#353535;
+  transition: all 150ms;
  
 }
+#choose-super-hero-team img{
+  width: 10vw;
+  filter: invert(0.95);
+}
 #choose-super-hero-team:hover img{
-  filter: invert(1);
+  filter: invert(0.91);
+  width: 13vw;
+  transition:all 250ms;
 }
 
 /* Fin Home */

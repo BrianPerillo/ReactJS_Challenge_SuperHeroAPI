@@ -7,8 +7,11 @@ import HeroCard from './Cards/HeroCard';
 import {NavLink} from 'react-router-dom';
 import SliderMenu from './SliderMenu';
 import { teamStats } from '../store/actions/Team';
+import { useParams } from 'react-router';
 
 const Team = (props) => {
+    
+    const params = useParams();
 
     const dispatch = useDispatch();
 
@@ -47,7 +50,7 @@ const Team = (props) => {
                             { 
                                 team.length < 6 ? 
                                 <div className="col d-flex justify-content-center mt-5" style={{marginLeft: '30px'}}>
-                                    <NavLink to={'/search'}
+                                    <NavLink to={`/${params.choose}/search`}
                                     style={{textDecoration: 'none', color:'white'}}>
                                         <i id="add-from-home-button" className="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
                                     </NavLink>

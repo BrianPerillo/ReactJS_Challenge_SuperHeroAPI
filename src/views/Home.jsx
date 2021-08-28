@@ -19,13 +19,13 @@ const Home = () => {
 
                     <div id='choose-poketeam' style={{display:'flex',justifyContent:'space-around', alignContent:'center', alignItems:'center',height:'100vh',width:'50vw'}}>
                         <Link to={'/pokemon/team'} >
-                            <img src="../imgs/pokeball.ico" alt="" style={{maxWidth:'300px'}} />
+                            <img src="../imgs/pokeball.ico" alt=""/>
                         </Link>
                     </div>
 
                     <div id='choose-super-hero-team' style={{display:'flex',justifyContent:'space-around', alignContent:'center', alignItems:'center',height:'100vh', width:'50vw'}}>
                         <Link to={'/superHeros/team'} >
-                            <img src="../imgs/spartan_icon.png" alt="" style={{maxWidth:'200px'}} />
+                            <img src="../imgs/spartan_icon.png" alt=""/>
                         </Link>
                     </div>
 

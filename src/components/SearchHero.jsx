@@ -7,9 +7,11 @@ import ListadoCards from './ListadoCards'
 import { getHeros } from '../store/actions/Heros';
 import { useParams } from 'react-router';
 
-const SearchHero = () => {
+const SearchHero = (props) => {
 
     const dispatch = useDispatch();
+
+    const [search, setSearch] = useState(props.choose) // Esta const guarda el dato de lo que hay que buscar (si un hero o un pokemon)
 
     const heros = useSelector(state => state.heros.list) || {}
     const error_values = useSelector(state => state.heros.error_values) || {}
@@ -18,10 +20,14 @@ const SearchHero = () => {
 
     var result = null;  
 
-
     useEffect(() => {
 
- 
+        if(search == 'pokemon'){
+            console.log('pika pika');
+        }
+        else{
+            console.log('superHero');
+        }
         
     }, [])
 
@@ -63,7 +69,7 @@ const SearchHero = () => {
 
                 <div style={{minHeight:'100vh'}}>
 
-                    <FormHero setFirstTime={setFirstTime} loading={loading} setLoading={setLoading}/>
+                    <FormHero search={search} setFirstTime={setFirstTime} loading={loading} setLoading={setLoading}/>
                     
                     { result }
 
