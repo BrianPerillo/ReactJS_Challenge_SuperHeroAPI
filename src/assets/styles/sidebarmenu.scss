@@ -13,4 +13,13 @@ $breakpoint-md: 768px !default;
 $breakpoint-lg: 992px !default;
 $breakpoint-xl: 1200px !default;
 
+// @media (max-width: 768px){
+//     .pro-sidebar  {
+//         position: fixed;
+//         left: -270px;
+//     }
+// }
+
+
 @import '~react-pro-sidebar/dist/scss/styles.scss';
+

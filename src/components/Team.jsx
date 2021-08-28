@@ -30,22 +30,22 @@ const Team = (props) => {
 
         <Fragment>
 
-            <div className="row" style={{margin:'0px', minHeight:'100vh'}}>
+            <div className="row" style={{margin:'0px', minHeight:'100vh'}} >
 
-                
+                <div className="">
                     <SliderMenu teamLength={teamLength} stats={stats} />
                     {/* <Atributtes stats={stats} teamLength={teamLength}/> */}
-            
+                </div>
            
-                <div id="" className="col">
+                <div id="" className="col" style={{overflow:'auto', height:'100vh'}}>
 
-                    <div className="container">
+                    <div className="container" >
             
                     {/*Si el equipo no está completo muestro botón para agregar personajes*/}
 
                             { 
                                 team.length < 6 ? 
-                                <div className="col d-flex justify-content-center mt-5">
+                                <div className="col d-flex justify-content-center mt-5" style={{marginLeft: '30px'}}>
                                     <NavLink to={'/search'}
                                     style={{textDecoration: 'none', color:'white'}}>
                                         <i id="add-from-home-button" className="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
@@ -56,9 +56,8 @@ const Team = (props) => {
 
                                     ''
                             }
-
-
-                        <div className='row'>   
+ 
+                        <div className='row' style={{marginLeft: '50px'}}>   
 
                             <div className="col mt-5">  
                                 
