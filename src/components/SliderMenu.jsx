@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 import { AiOutlineTeam } from "react-icons/ai";
 import Atributtes from './Atributtes';
+import { FcLike } from "react-icons/fc";
 import { IoMenuSharp } from "react-icons/io5";
 
 const SliderMenu = ({stats, teamLength}) => {
@@ -73,8 +74,9 @@ const SliderMenu = ({stats, teamLength}) => {
                         <SubMenu icon={<AiOutlineTeam />} title="Team Stats" >
                             <Atributtes teamLength={teamLength} stats={stats}/>
                         </SubMenu>
-                        <SubMenu icon={<AiOutlineTeam />} title="Team Stats" >
-                            <Atributtes teamLength={teamLength} stats={stats}/>
+                        <SubMenu icon={<FcLike />} title="Favoritos" >
+                            <p>Superman</p>
+                            <p>Batman</p>
                         </SubMenu>
                     </Menu>
                 </SidebarContent>  
