@@ -1,8 +1,8 @@
-import './styles/main.css';
-import './styles/cards.css';
-import './styles/detailcard.css';
-import './styles/login.css';
-import './styles/footer.css';
+import './assets/styles/main.css';
+import './assets/styles/cards.css';
+import './assets/styles/detailcard.css';
+import './assets/styles/login.css';
+import './assets/styles/footer.css';
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {React, useEffect} from 'react';

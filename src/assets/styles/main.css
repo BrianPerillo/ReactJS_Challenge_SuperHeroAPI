@@ -168,7 +168,7 @@ header nav div .menu li ul li a:hover {
 
   /* Atributos Home */
 
-  #atributos div h4{
+  /* #atributos div h4{
     text-align: center;
   }
 
@@ -178,18 +178,19 @@ header nav div .menu li ul li a:hover {
 
   #atributos div p{
     text-align: center;
-  }
+  } */
 
   #atributos {
-    /* background-color: rgb(255, 255, 255); */
-    background: #2e2e2e;
+      /* background-color: rgb(255, 255, 255); */
+    /* background: #2e2e2e; */
     color: #f8f8f8;
-    padding: 14px;
-    min-height: 70vh;
-    /* margin-top:5vh; */
-    /* border-radius: 10px; */
-    /* box-shadow: 3px 3px 5px #b8b8b8b0; */
-    height: 580px;
+    /*padding: 14px;
+    min-height: 70vh; */
+      /* margin-top:5vh; */
+      /* border-radius: 10px; */
+      /* box-shadow: 3px 3px 5px #b8b8b8b0; */
+    /* height: 580px;*/
+
 
   }
 

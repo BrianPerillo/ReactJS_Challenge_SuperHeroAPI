@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Atributtes from '../components/Atributtes'
 import Card from './Card'
 import {NavLink} from 'react-router-dom';
+import SliderMenu from './SliderMenu';
 import { teamStats } from '../store/actions/Team';
 
 const Team = (props) => {
@@ -29,8 +30,10 @@ const Team = (props) => {
         <Fragment>
 
             <div className="row">
+                
+                <SliderMenu teamLength={teamLength} stats={stats} />
 
-                <Atributtes stats={stats} teamLength={teamLength}/>
+                {/* <Atributtes stats={stats} teamLength={teamLength}/> */}
            
                 <div id="team-container" className="container">
             
