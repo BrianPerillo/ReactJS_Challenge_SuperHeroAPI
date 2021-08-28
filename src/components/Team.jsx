@@ -30,12 +30,12 @@ const Team = (props) => {
 
         <Fragment>
 
-            <div className="row" style={{margin:'0px'}}>
+            <div className="row" style={{margin:'0px', minHeight:'100vh'}}>
 
-                <div style={{padding:'0px'}}>
+                
                     <SliderMenu teamLength={teamLength} stats={stats} />
                     {/* <Atributtes stats={stats} teamLength={teamLength}/> */}
-                </div>
+            
            
                 <div id="" className="col">
 
@@ -58,7 +58,7 @@ const Team = (props) => {
                             }
 
 
-                        <div className='row'>
+                        <div className='row'>   
 
                             <div className="col mt-5">  
                                 

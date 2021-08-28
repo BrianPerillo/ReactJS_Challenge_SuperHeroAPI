@@ -61,10 +61,13 @@ const SearchHero = () => {
         
         <Fragment> 
 
-                <FormHero setFirstTime={setFirstTime} loading={loading} setLoading={setLoading}/>
-                
-                { result }
+                <div style={{minHeight:'100vh'}}>
 
+                    <FormHero setFirstTime={setFirstTime} loading={loading} setLoading={setLoading}/>
+                    
+                    { result }
+
+                </div>
         </Fragment>
 
 
