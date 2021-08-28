@@ -27,15 +27,19 @@ const Team = (props) => {
     console.log(stats);
     
     return ( 
+
         <Fragment>
 
-            <div className="row">
-                
-                <SliderMenu teamLength={teamLength} stats={stats} />
+            <div className="row" style={{margin:'0px'}}>
 
-                {/* <Atributtes stats={stats} teamLength={teamLength}/> */}
+                <div style={{padding:'0px'}}>
+                    <SliderMenu teamLength={teamLength} stats={stats} />
+                    {/* <Atributtes stats={stats} teamLength={teamLength}/> */}
+                </div>
            
-                <div id="team-container" className="container">
+                <div id="" className="col">
+
+                    <div className="container">
             
                     {/*Si el equipo no está completo muestro botón para agregar personajes*/}
 
@@ -54,26 +58,26 @@ const Team = (props) => {
                             }
 
 
-                    <div className='row'>
+                        <div className='row'>
 
-                        <div className="col mt-5">  
-                        
-                        <div className="row"> 
-                        {
-                            team.map((hero) => 
-                                <Card hero={hero} teamView={true} size={'col-sm-6 col-md-6 col-xl-3 p-3'}/>
-                            )
-                        
-                        }
+                            <div className="col mt-5">  
                                 
+                                <div className="row"> 
+                                {
+                                    team.map((hero) => 
+                                        <Card hero={hero} teamView={true} size={'col-sm-6 col-md-6 col-xl-3 p-3'}/>
+                                    )
+                                    
+                                }
+                                            
+                                </div>
                             </div>
-                        </div>
-                    </div> 
-
+                        </div> 
+                    </div>
                 </div>   
-        </div>
+            </div>
+            
         </Fragment>
-
 
      );
 }

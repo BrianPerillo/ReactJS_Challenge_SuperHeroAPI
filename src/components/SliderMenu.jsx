@@ -24,16 +24,18 @@ const SliderMenu = ({stats, teamLength}) => {
     }, [switchMenu])
 
     return ( 
-        <div style={{height:'75vh'}}>
-        <ProSidebar collapsed={switchMenu} image={'https://i.pinimg.com/originals/db/b2/12/dbb2129035f83c491af200bb58e257cc.jpg'}>
-        <Menu iconShape="circle">
-            <MenuItem  icon={<IoMenuSharp />} onClick={()=>handleOnCollapse()} ></MenuItem>
-                <SubMenu icon={<AiOutlineTeam />} title="Team Stats" >
-                <Atributtes teamLength={teamLength} stats={stats}/>
-            </SubMenu>
-        </Menu>
-        </ProSidebar>
+
+        <div style={{height:'100vh'}}>
+            <ProSidebar collapsed={switchMenu} image={'https://i.pinimg.com/originals/db/b2/12/dbb2129035f83c491af200bb58e257cc.jpg'}>
+            <Menu iconShape="circle">
+                <MenuItem  icon={<IoMenuSharp />} onClick={()=>handleOnCollapse()} ></MenuItem>
+                    <SubMenu icon={<AiOutlineTeam />} title="Team Stats" >
+                    <Atributtes teamLength={teamLength} stats={stats}/>
+                </SubMenu>
+            </Menu>
+            </ProSidebar>
         </div>
+
      );
      
 }
