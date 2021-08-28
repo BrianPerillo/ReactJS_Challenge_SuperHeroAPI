@@ -5,7 +5,7 @@ const PrivateRoute = ({component:Component, ...props}) => {
 
 //     let hasToken = false;
     let hasToken = true;
-
+//-
     const token = localStorage.getItem('token'); // Chequeo si está el token en localStorage en lugar de consultarlo al Estado. Si recarga la página no tiene
     // que loguearse de nuevo
 
