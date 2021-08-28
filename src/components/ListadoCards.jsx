@@ -1,6 +1,7 @@
 import React, {Fragment, useEffect} from 'react'
 
-import Card from '../components/Card';
+import Card from './Cards/Card';
+import HeroCard from './Cards/HeroCard';
 
 const ListadoCards = (props) => {
 
@@ -20,7 +21,7 @@ const ListadoCards = (props) => {
                         {
                             props.heros.map((hero) =>
 
-                                <Card searchIn={props.searchIn} hero={hero} size={'col-sm-6 col-md-6 col-lg-4 col-xl-3 p-3'}/>
+                                <HeroCard searchIn={props.searchIn} hero={hero} size={'col-sm-6 col-md-6 col-lg-4 col-xl-3 p-3'}/>
 
                             )
                         }

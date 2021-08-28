@@ -8,11 +8,12 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {React, useEffect} from 'react';
 
 import HeroDetailView from './views/HeroDetailView';
-import HomeView from './views/HomeView';
+import Home from './views/Home';
 import Login from './views/Login';
 import PrivateRoute from './components/PrivateRoute';
 import { Provider } from 'react-redux'; // (El Provider esta en el index)
 import SearchView from './views/SearchView';
+import TeamView from './views/TeamView';
 
 function App() {
   
@@ -29,13 +30,15 @@ function App() {
       
       <Switch>
 
-          <PrivateRoute exact path="/" component={HomeView}/>
+          <PrivateRoute exact path="/" component={Home}/>
 
           <Route exact path="/login" >
             <Login/>
           </Route>
 
-          <PrivateRoute exact path="/search" component={SearchView}/>
+          <PrivateRoute exact path="/:name/search" component={SearchView}/>
+
+          <PrivateRoute exact path="/:name/team" component={TeamView}/>
 
           <PrivateRoute exact path="/hero_detail/:id" component={HeroDetailView}/>
 

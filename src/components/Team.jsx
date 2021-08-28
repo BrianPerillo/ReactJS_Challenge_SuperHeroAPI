@@ -2,7 +2,8 @@ import React, {Fragment, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import Atributtes from '../components/Atributtes'
-import Card from './Card'
+import Card from './Cards/Card'
+import HeroCard from './Cards/HeroCard';
 import {NavLink} from 'react-router-dom';
 import SliderMenu from './SliderMenu';
 import { teamStats } from '../store/actions/Team';
@@ -64,7 +65,7 @@ const Team = (props) => {
                                 <div className="row"> 
                                 {
                                     team.map((hero) => 
-                                        <Card hero={hero} teamView={true} size={'col-sm-6 col-md-6 col-xl-3 p-3'}/>
+                                        <HeroCard hero={hero} teamView={true} size={'col-sm-6 col-md-6 col-xl-3 p-3'}/>
                                     )
                                     
                                 }

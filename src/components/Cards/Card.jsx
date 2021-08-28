@@ -1,8 +1,8 @@
 import React, {Fragment, useEffect, useState} from 'react'
 
 import {Link,} from 'react-router-dom';
-import { removeHero } from '../store/actions/Team';
-import { teamStats } from '../store/actions/Team';
+import { removeHero } from '../../store/actions/Team';
+import { teamStats } from '../../store/actions/Team';
 import { useDispatch } from 'react-redux';
 
 const Card = (props) => {
