@@ -10,7 +10,7 @@ const Card = (props) => {
     const dispatch = useDispatch();
     const [showNotification, setShowNotification] = useState(false);
     
-
+    
     const handleOnSubmit = (e) => {
         
         e.preventDefault();

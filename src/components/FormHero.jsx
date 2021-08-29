@@ -1,13 +1,15 @@
 import React, {Fragment, useEffect, useState} from 'react'
 
 import { findCurrentHero } from '../store/actions/Heros';
+import { findCurrentPoke } from '../store/actions/Pokes';
 import { getHeros } from '../store/actions/Heros';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 
 const FormHero = (props) => {
+    
     console.log("props.search");
-console.log(props.search);
+    console.log(props.search);
     const dispatch = useDispatch();
 
     const [name, setName] = useState('')
@@ -26,12 +28,25 @@ console.log(props.search);
 
         //Si hay que buscar un pokemon: 
         if(props.search == 'pokemon'){
+            //Si tocaron enter: 
             if(e.which==13){
+
+                props.setLoading(true)
+                props.setFirstTime(false)
                 e.preventDefault();
                 console.log('BUSCAR POKEMON');
-            }
-            else{
-                console.log('BUSCAR POKEMON');
+
+                if(name.length > 0){
+                    
+                    console.log(name);console.log(name);console.log(name);
+                    dispatch(findCurrentPoke(name))
+                    .then(()=>props.setLoading(false))
+    
+                }
+                else{
+                    props.setFirstTime(true)
+                }
+
             }
         }
         //Si no hay que buscar un pokemon (o sea hay que buscar un Hero): 
@@ -132,7 +147,6 @@ console.log(props.search);
                 </form>
                 
         </Fragment>
-
 
      );
 }

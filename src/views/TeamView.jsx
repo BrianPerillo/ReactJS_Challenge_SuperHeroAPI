@@ -26,8 +26,8 @@ const TeamView = () => {
         <Fragment>
             
             <NavBar choose={params.name} />
-            <Team choose={params.name}/>
-            <Footer/>
+            <Team choose={params.name } />
+            <Footer />
 
         </Fragment>
 

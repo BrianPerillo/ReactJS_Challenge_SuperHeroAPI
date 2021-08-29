@@ -2,6 +2,7 @@ import React, {Fragment, useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import Alert from './Alert';
+import CardPoke from './Cards/CardPoke';
 import FormHero from './FormHero'
 import ListadoCards from './ListadoCards'
 import { getHeros } from '../store/actions/Heros';
@@ -14,6 +15,7 @@ const SearchHero = (props) => {
     const [search, setSearch] = useState(props.choose) // Esta const guarda el dato de lo que hay que buscar (si un hero o un pokemon)
 
     const heros = useSelector(state => state.heros.list) || {}
+    const pokes = useSelector(state => state.pokes.list) || {}
     const error_values = useSelector(state => state.heros.error_values) || {}
     const [loading, setLoading] = useState(true)
     const [firstTime, setFirstTime] = useState(true)
@@ -29,8 +31,9 @@ const SearchHero = (props) => {
             console.log('superHero');
         }
         
-    }, [])
-
+    }, []) 
+    console.log("sssss");
+    console.log(pokes.name);
     console.log(heros);
 
     if(firstTime){
@@ -49,8 +52,11 @@ const SearchHero = (props) => {
     else if(loading == true){
         result = <Alert color='secondary' message={'Loading...'} gifUrl="imgs/loading-gif-orange-8.gif"/> 
     }
-    else if(heros.length > 0){
+    else if(heros.length > 0 && search == 'superHeros'){
         result = <ListadoCards heros={heros}/>   
+    }
+    else if(pokes && search == 'pokemon'){
+        result = <CardPoke pokes={pokes}/>
     }
     else if(heros.length == 0){
         result = <Alert color='danger' message='No se encontraron resultados :('/>
