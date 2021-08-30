@@ -30,7 +30,7 @@ const Team = ({stats, teamLength, team, ...props}) => {
 
         //cambio el valro de collapsed y toggled mediante métodos recibidos desde TeamView para cambiar estos estados en ese componente
 
-        props.setCollapsed(prevState => !prevState)
+        props.setCollapsed(true)
         props.setToggled(prevState => !prevState)
 
     }
