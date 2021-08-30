@@ -9,9 +9,10 @@ import Atributtes from './Atributtes';
 import { FcLike } from "react-icons/fc";
 import { IoMenuSharp } from "react-icons/io5";
 
-const SliderMenu = ({stats, teamLength}) => {
+const SliderMenu = ({stats, teamLength, collapsed, setCollapsed, toggled, setToggled}) => {
 
-    const [switchMenu, setSwitchMenu] = useState(true)
+    const [mainCollapsed, setMainCollapsed] = useState(collapsed)
+
     const [styles, setStyles] = useState({
         sidebar:{
             height:'100vh',
@@ -24,8 +25,9 @@ const SliderMenu = ({stats, teamLength}) => {
 
     const handleOnCollapse = () => {
      
-        setSwitchMenu(prevState => !prevState)
+        setCollapsed(prevState => !prevState)
 
+        console.log("handleOn " + mainCollapsed);
         // if(switchMenu){
 
         //     setStyles({
@@ -53,16 +55,25 @@ const SliderMenu = ({stats, teamLength}) => {
 
     }
 
-    useEffect(() => {
-     
+    const handleOnToggle = () => {
 
-    }, [switchMenu])
+        console.log('tocaron overlay');
+        setToggled(false)
+
+    }
+
+    useEffect(() => {
+        console.log("effect collapsed");
+        console.log(collapsed);
+
+    }, [])
 
     return ( 
 
         <div>
            
-            <ProSidebar style={styles.sidebar} collapsed={switchMenu} image={'https://i.pinimg.com/originals/db/b2/12/dbb2129035f83c491af200bb58e257cc.jpg'}>
+            <ProSidebar breakPoint={'md'} toggled={toggled} onToggle={()=>handleOnToggle()}
+            style={styles.sidebar} collapsed={collapsed} image={'https://i.pinimg.com/originals/db/b2/12/dbb2129035f83c491af200bb58e257cc.jpg'}>
                 <SidebarHeader>
                     <Menu iconShape="circle">
                         <MenuItem  icon={<IoMenuSharp />} onClick={()=>handleOnCollapse()} ></MenuItem>
