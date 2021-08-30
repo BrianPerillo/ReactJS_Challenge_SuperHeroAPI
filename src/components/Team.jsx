@@ -54,7 +54,7 @@ const Team = ({stats, teamLength, team, ...props}) => {
                 <div id="" className="col" style={{overflow:'auto', height:'100vh'}}>
                
                     <div className="container" >
-                    <button id='menuButton' className="btn btn-dark" style={{position:'absolute', left:10, top:20, borderRadius:50}} onClick={()=>handleOnClick()}>
+                    <button id='menuButton' className="btn btn-dark" style={{position:'absolute', left:10, top:20, borderRadius:20, height:40}} onClick={()=>handleOnClick()}>
                         <IoMenuSharp />
                     </button>
                     {/*Si el equipo no está completo muestro botón para agregar personajes*/}
