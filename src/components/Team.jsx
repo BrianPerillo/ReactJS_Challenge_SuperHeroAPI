@@ -1,14 +1,11 @@
 import React, {Fragment, useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-import Atributtes from '../components/Atributtes'
-import Card from './Cards/Card'
 import HeroCard from './Cards/HeroCard';
+import { IoMenuSharp } from "react-icons/io5";
 import {NavLink} from 'react-router-dom';
-import SliderMenu from './SliderMenu';
 import { teamStats } from '../store/actions/Team';
 import { useParams } from 'react-router';
-import { IoMenuSharp } from "react-icons/io5";
 
 const Team = ({stats, teamLength, team, ...props}) => {
 
@@ -93,8 +90,24 @@ const Team = ({stats, teamLength, team, ...props}) => {
             </div>
 
         : 
+            <Fragment>
 
-            <p>Team Poke</p>
+                <div className="row" style={{margin:'0px', minHeight:'100vh'}} >
+                    <div id="" className="col" style={{overflow:'auto', height:'100vh'}}>
+                
+                    <div className="container" >
+
+                        <button id='menuButton' className="btn btn-dark" style={{position:'absolute', left:10, top:20, borderRadius:20, height:40}} onClick={()=>handleOnClick()}>
+                            <IoMenuSharp />
+                        </button>
+                        <p>Team Poke</p>
+                    </div>
+
+                </div>
+            </div>      
+                    
+            </Fragment>
+         
 
         }
 

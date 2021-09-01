@@ -2,9 +2,7 @@ import React, {Fragment, useEffect, useState} from 'react'
 
 import { findCurrentHero } from '../store/actions/Heros';
 import { findCurrentPoke } from '../store/actions/Pokes';
-import { getHeros } from '../store/actions/Heros';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
 
 const FormHero = (props) => {
     
@@ -68,7 +66,6 @@ const FormHero = (props) => {
                 }
             }
         }
-        
 
     }
 

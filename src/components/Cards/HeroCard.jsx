@@ -1,17 +1,20 @@
+import {Link, useParams} from 'react-router-dom';
 import React, {Fragment, useEffect, useState} from 'react'
 
-import {Link} from 'react-router-dom';
 import { removeHero } from '../../store/actions/Team';
 import { teamStats } from '../../store/actions/Team';
 import { useDispatch } from 'react-redux';
 
 const HeroCard = (props) => {
 
+    const {name} = useParams();
+
     const dispatch = useDispatch();
     const [showNotification, setShowNotification] = useState(false);
     
 
     const handleOnSubmit = (e) => {
+        
         console.log('Handle Hero');
         e.preventDefault();
         //Remuevo el Hero
@@ -24,7 +27,7 @@ const HeroCard = (props) => {
 
     useEffect(() => {
 
-
+       
 
     }, [])
 
@@ -38,7 +41,7 @@ const HeroCard = (props) => {
                     <div className="img">
                         <img src={props.hero.image.url}/>
                     </div>
-                    <Link to={'/hero_detail/' + props.hero.id}
+                    <Link to={`/${name}/hero_detail/${props.hero.id}`}
                         style={{textDecoration: 'none', color:'white'}}>
                         <button className="btn btn-propio">
                             <a className="view-more">

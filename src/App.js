@@ -10,6 +10,7 @@ import {React, useEffect} from 'react';
 import HeroDetailView from './views/HeroDetailView';
 import Home from './views/Home';
 import Login from './views/Login';
+import PokeDetailView from './views/PokeDetailView';
 import PrivateRoute from './components/PrivateRoute';
 import { Provider } from 'react-redux'; // (El Provider esta en el index)
 import SearchView from './views/SearchView';
@@ -40,7 +41,9 @@ function App() {
 
           <PrivateRoute exact path="/:name/team" component={TeamView}/>
 
-          <PrivateRoute exact path="/hero_detail/:id" component={HeroDetailView}/>
+          <PrivateRoute exact path="/:name/hero_detail/:id" component={HeroDetailView}/>
+
+          <PrivateRoute exact path="/:name/poke_detail/:id" component={PokeDetailView}/>
 
       </Switch>
 

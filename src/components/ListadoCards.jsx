@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect} from 'react'
 
-import Card from './Cards/Card';
+
 import HeroCard from './Cards/HeroCard';
 
 const ListadoCards = (props) => {

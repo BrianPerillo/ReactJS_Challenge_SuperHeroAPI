@@ -1,7 +1,4 @@
-import React, {Fragment, useContext} from 'react'
-
-import { FaBeer } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import React, {Fragment} from 'react'
 
 const Atributtes = (props) => {
 

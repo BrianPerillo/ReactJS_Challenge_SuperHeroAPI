@@ -1,9 +1,9 @@
 import React, {Fragment, useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-import Alert from './Alert';
-import { addHero } from '../store/actions/Team';
-import { getHero } from '../services/Heros';
+import Alert from '../../Alert';
+import { addHero } from '../../../store/actions/Team';
+import { getHero } from '../../../services/Heros';
 import {useParams} from 'react-router-dom';
 
 const HeroDetail = () => {
@@ -11,11 +11,13 @@ const HeroDetail = () => {
     const dispatch = useDispatch();
     const baseUrl = process.env.REACT_APP_SUPER_HERO_BASE_URL;
     
-    const {id} = useParams();
+    const {choose, id} = useParams();
     const [loading, setLoading] = useState(true)
     const [hero, setHero] = useState()
 
     const [showNotification, setShowNotification] = useState(false);
+    
+    const message = useSelector(state => state.team.message) || '';
 
     const handleSubmit = (e) => {
         
@@ -33,19 +35,11 @@ const HeroDetail = () => {
         setLoading(false);
     }
     
-    const message = useSelector(state => state.team.message) || '';
-    
     useEffect(() => {
         
-        // dispatch(selectedHero(id));
-
-
         obtenerHero();
         
-        // teamContext.getTeam() // Cada vez que se cargue este componente consulta el team    
-        // teamContext.getTeamSize()
-        
-    }, []) // [teamContext.message]
+    }, []) 
 
     return ( 
 

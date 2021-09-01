@@ -1,11 +1,11 @@
 import React, {Fragment} from "react";
 
 import Footer from "../components/Footer";
-import HeroDetail from "../components/Cards/Details/HeroDetail";
 import NavBar from "../components/NavBar";
+import PokeDetail from "../components/Cards/Details/PokeDetail";
 import { useParams } from "react-router";
 
-const HeroDetailView = () => {
+const PokeDetailView = () => {
 
     const params = useParams();
 
@@ -16,7 +16,7 @@ const HeroDetailView = () => {
         
         <Fragment>
             <NavBar choose={params.name}/>
-            <HeroDetail/>
+            <PokeDetail/>
             <Footer/>
         </Fragment>
 
@@ -24,4 +24,4 @@ const HeroDetailView = () => {
 
 }
  
-export default HeroDetailView;
+export default PokeDetailView;

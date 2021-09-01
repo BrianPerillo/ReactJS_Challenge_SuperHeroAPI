@@ -5,8 +5,6 @@ import Alert from './Alert';
 import CardPoke from './Cards/CardPoke';
 import FormHero from './FormHero'
 import ListadoCards from './ListadoCards'
-import { getHeros } from '../store/actions/Heros';
-import { useParams } from 'react-router';
 
 const SearchHero = (props) => {
 

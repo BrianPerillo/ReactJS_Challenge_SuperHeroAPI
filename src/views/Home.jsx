@@ -1,11 +1,6 @@
-import {Link, NavLink} from 'react-router-dom';
 import React, {Fragment} from "react";
 
-import Footer from "../components/Footer";
-import {NavBar} from "../components/NavBar";
-import SliderMenu from "../components/SliderMenu";
-import Team from "../components/Team";
-import { useSelector } from "react-redux";
+import {Link} from 'react-router-dom';
 
 const Home = () => {
 

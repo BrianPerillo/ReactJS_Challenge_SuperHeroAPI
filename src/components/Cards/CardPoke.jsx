@@ -4,12 +4,15 @@ import {Link,} from 'react-router-dom';
 import { removeHero } from '../../store/actions/Team';
 import { teamStats } from '../../store/actions/Team';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router';
 
 const CardPoke = ({pokes}) => {
 
     const dispatch = useDispatch();
     const [showNotification, setShowNotification] = useState(false);
-    
+
+    const {name} = useParams();
+
     console.log(pokes);
 
     const handleOnSubmit = (e) => {
@@ -37,7 +40,7 @@ const CardPoke = ({pokes}) => {
                     <div className="img">
                         <img src={pokes.sprites.front_default} style={{width:'150px'}}/>
                     </div>
-                    <Link to={'/'}
+                    <Link to={`/${name}/poke_detail/${pokes.id}`}
                         style={{textDecoration: 'none', color:'white'}}>
                         <button className="btn btn-propio">
                             <a className="view-more">

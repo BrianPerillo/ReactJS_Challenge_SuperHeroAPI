@@ -17,7 +17,7 @@ const NavBar = (props) => {
 
         if(props.choose == 'pokemon'){
             
-            console.log('ZI ZEÑODA');
+            console.log('nav para pokes');
             setLogo('../imgs/pokemon-logo.ico')
             setSearchTxt('Search Poke')
             setTeamIcon('../imgs/pokeball.ico')
@@ -25,7 +25,7 @@ const NavBar = (props) => {
         }
         else{
 
-            console.log('NO ZEÑODA');
+            console.log('nav para supeHeros');
             setLogo('../imgs/cape_icon.png')
             setSearchTxt('Search Hero')
             setTeamIcon('../imgs/spartan_icon.png')
@@ -33,16 +33,6 @@ const NavBar = (props) => {
         }
 
     }, [])
-
-
-    const handleOnClick = () => {
-
-        //cambio el valro de collapsed y toggled mediante métodos recibidos desde TeamView para cambiar estos estados en ese componente
-
-        props.setCollapsed(prevState => !prevState)
-        props.setToggled(prevState => !prevState)
-
-    }
 
     return ( 
 
