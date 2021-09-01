@@ -4,9 +4,6 @@ export const GET_POKES = 'GET_POKES';
 export const FIND_CURRENT_POKE = 'FIND_CURRENT_POKE';
 export const FIND_SELECTED_POKE = 'FIND_SELECTED_POKE';
 export const SEARCH_ERROR = 'SEARCH_ERROR';
-export const ADD_POKE = 'ADD_POKE';
-export const REMOVE_POKE = 'REMOVE_POKE'
-
 
 //POKES
 

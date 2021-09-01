@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 
 const TeamView = () => {
 
+    //por params llega name que nos permite saber si al comp Team debemos pasarle el team de pokes o de superHeros
     const params = useParams();
     
     //Estados para contralar el SideBarMenu - pueden ser seteados desde Team y desde el propio SliderMenu
@@ -17,16 +18,24 @@ const TeamView = () => {
     const [toggled, setToggled] = useState(false)
     //
 
-    //Consulto team y stats para pasar info al SideBarMenu y a Team
+    //HEROS: Consulto team y stats para pasar info al SideBarMenu y a Team
     const team = useSelector(state => state.team.team) || {}
 
     const stats = useSelector(state => state.team.teamStats) || null;
 
     const teamLength = team.length;
     //
+    
+    //POKES: Consulto
+    const pokesTeam = useSelector(state => state.pokeTeam.team) || {}
+
+    const teamPokesLength = pokesTeam.length;
+    //
+
+
 
     console.log("params");
-    console.log(params);
+    console.log(params.name);
 
     useEffect(() => {
 
@@ -42,7 +51,16 @@ const TeamView = () => {
            
             <NavBar choose={params.name} /> 
             <SliderMenu stats={stats} teamLength={teamLength} collapsed={collapsed} toggled={toggled} setCollapsed={setCollapsed} setToggled={setToggled} />
-            <Team setCollapsed={setCollapsed} setToggled={setToggled} stats={stats} teamLength={teamLength} team={team} choose={params.name} />
+            { //Cago PokeTeam o SuperHerosTeam según el caso
+                params.name == 'pokemon' ? 
+
+                    <Team setCollapsed={setCollapsed} setToggled={setToggled} teamLength={teamPokesLength} team={pokesTeam} choose={params.name} />
+
+                : 
+
+                    <Team setCollapsed={setCollapsed} setToggled={setToggled} stats={stats} teamLength={teamLength} team={team} choose={params.name} />
+            }
+         
             <Footer />
 
         </Fragment>

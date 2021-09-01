@@ -6,7 +6,7 @@ import { teamStats } from '../../store/actions/Team';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 
-const CardPoke = ({pokes}) => {
+const PokeCard = ({pokes}, ...props) => {
 
     const dispatch = useDispatch();
     const [showNotification, setShowNotification] = useState(false);
@@ -34,7 +34,7 @@ const CardPoke = ({pokes}) => {
 
     return ( 
         <Fragment>
-            <div className='col-md-2'>
+            <div className={props.size}>
                 <div className="profile-card-1" style={{backgroundColor:'rgba(210, 57, 57, 0.937)'}}>
                 
                     <div className="img">
@@ -117,4 +117,4 @@ const CardPoke = ({pokes}) => {
      );
 }
  
-export default CardPoke;
+export default PokeCard;

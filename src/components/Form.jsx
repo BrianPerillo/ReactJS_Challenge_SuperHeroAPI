@@ -4,7 +4,7 @@ import { findCurrentHero } from '../store/actions/Heros';
 import { findCurrentPoke } from '../store/actions/Pokes';
 import { useDispatch } from 'react-redux';
 
-const FormHero = (props) => {
+const Form = (props) => {
     
     console.log("props.search");
     console.log(props.search);
@@ -148,4 +148,4 @@ const FormHero = (props) => {
      );
 }
  
-export default FormHero;
+export default Form;

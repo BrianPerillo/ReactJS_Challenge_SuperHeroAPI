@@ -4,8 +4,6 @@ export const GET_HEROS = 'GET_HEROS';
 export const FIND_CURRENT_HERO = 'FIND_CURRENT_HERO';
 export const FIND_SELECTED_HERO = 'FIND_SELECTED_HERO';
 export const SEARCH_ERROR = 'SEARCH_ERROR';
-export const ADD_HERO = 'ADD_HERO';
-export const REMOVE_HERO = 'REMOVE_HERO'
 
 const baseUrl = process.env.REACT_APP_SUPER_HERO_BASE_URL;
 const baseNameUrl = process.env.REACT_APP_SUPER_HERO_BASE_URL+'/search/';

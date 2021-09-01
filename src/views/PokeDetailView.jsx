@@ -12,6 +12,9 @@ const PokeDetailView = () => {
     console.log("params");console.log("params");console.log("params");console.log("params");
     console.log(params.name);
     
+
+    /*Se toma param name para pasarselo al nav, El name puede ser pokemons o superHeo según el caso el nav varía sus estilos*/
+
     return ( 
         
         <Fragment>

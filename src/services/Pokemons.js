@@ -21,7 +21,7 @@ export const getPokeById = async (baseUrl, id) => {
 
     let hero;
 
-    const res = await axios.get(baseUrl + id)
+    const res = await axios.get(baseUrl + '/' + id)
     .then(res => hero = res.data)
 
     return hero;

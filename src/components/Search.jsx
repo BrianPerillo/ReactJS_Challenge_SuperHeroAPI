@@ -2,9 +2,9 @@ import React, {Fragment, useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import Alert from './Alert';
-import CardPoke from './Cards/CardPoke';
-import FormHero from './FormHero'
+import Form from './Form'
 import ListadoCards from './ListadoCards'
+import PokeCard from './Cards/PokeCard';
 
 const SearchHero = (props) => {
 
@@ -54,7 +54,7 @@ const SearchHero = (props) => {
         result = <ListadoCards heros={heros}/>   
     }
     else if(pokes && search == 'pokemon'){
-        result = <CardPoke pokes={pokes}/>
+        result = <PokeCard pokes={pokes}/>
     }
     else if(heros.length == 0){
         result = <Alert color='danger' message='No se encontraron resultados :('/>
@@ -73,7 +73,7 @@ const SearchHero = (props) => {
 
                 <div style={{minHeight:'100vh'}}>
 
-                    <FormHero search={search} setFirstTime={setFirstTime} loading={loading} setLoading={setLoading}/>
+                    <Form search={search} setFirstTime={setFirstTime} loading={loading} setLoading={setLoading}/>
                     
                     { result }
 

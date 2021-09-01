@@ -2,10 +2,10 @@ import React, {Fragment} from "react";
 
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
-import SearchHero from "../components/SearchHero";
+import Search from "../components/Search";
 import { useParams } from "react-router";
 
-const Search = () => {
+const SearchView = () => {
 
     const params = useParams();
 
@@ -16,10 +16,10 @@ const Search = () => {
     
         <Fragment>
             <NavBar choose={params.name}/>
-            <SearchHero choose={params.name}/>
+            <Search choose={params.name}/>
             <Footer/>
         </Fragment> );
 
 }
  
-export default Search;
+export default SearchView;

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import HeroCard from './Cards/HeroCard';
 import { IoMenuSharp } from "react-icons/io5";
 import {NavLink} from 'react-router-dom';
+import PokeCard from './Cards/PokeCard';
 import { teamStats } from '../store/actions/Team';
 import { useParams } from 'react-router';
 
@@ -17,7 +18,8 @@ const Team = ({stats, teamLength, team, ...props}) => {
     useEffect(() => {
 
         dispatch(teamStats());
-
+        console.log(team);
+        console.log(team); console.log(team); console.log(team); console.log(team); console.log(team);
     }, [])
     
     console.log(team);
@@ -100,7 +102,24 @@ const Team = ({stats, teamLength, team, ...props}) => {
                         <button id='menuButton' className="btn btn-dark" style={{position:'absolute', left:10, top:20, borderRadius:20, height:40}} onClick={()=>handleOnClick()}>
                             <IoMenuSharp />
                         </button>
-                        <p>Team Poke</p>
+
+                        <div className='row'>   
+
+                            <div className="col mt-5">  
+                                
+                                <div className="row"> 
+                                {
+                                    team.map((poke) => 
+                                        <PokeCard pokes={poke} teamView={true} size={'col-sm-6 col-md-6 col-xl-3 p-3'}/>
+                                    )
+                                    
+                                }
+                                            
+                                </div>
+                            </div>
+                            
+                        </div> 
+                        
                     </div>
 
                 </div>
@@ -111,7 +130,6 @@ const Team = ({stats, teamLength, team, ...props}) => {
 
         }
 
-            
             
         </Fragment>
 

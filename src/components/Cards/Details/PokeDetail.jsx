@@ -2,9 +2,12 @@ import React, {Fragment, useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import Alert from '../../Alert';
-import { addHero } from '../../../store/actions/Team';
-import { getHero } from '../../../services/Heros';
+import { addPoke } from '../../../store/actions/TeamPokes';
+import { getPokeById } from '../../../services/Pokemons';
 import {useParams} from 'react-router-dom';
+
+// import { getHero } from '../../../services/Heros';
+
 
 const PokeDetail = () => {
 
@@ -12,11 +15,11 @@ const PokeDetail = () => {
     //en el useEffect)
 
     const dispatch = useDispatch();
-    const baseUrl = process.env.REACT_APP_SUPER_HERO_BASE_URL;
-    
-    const {choose, id} = useParams();
+    const baseUrl = process.env.REACT_APP_POKE_API_BASE_URL;
+
+    const {id} = useParams();
     const [loading, setLoading] = useState(true)
-    const [hero, setHero] = useState()
+    const [poke, setPoke] = useState()
 
     const [showNotification, setShowNotification] = useState(false);
     
@@ -25,22 +28,22 @@ const PokeDetail = () => {
     const handleSubmit = (e) => {
         
         e.preventDefault();
-        dispatch(addHero(hero));
+        dispatch(addPoke(poke));
         setShowNotification(true);
         // teamContext.add_hero(hero);
 
     }
     
+    const obtenerPoke= async () => {
+        const res = await getPokeById(baseUrl,id)
+        setPoke(res);
+        setLoading(false);console.log("poke");
 
-    const obtenerHero = async () => {
-        const res = await getHero(baseUrl,id)
-        setHero(res);
-        setLoading(false);
     }
     
     useEffect(() => {
         
-        obtenerHero();
+        obtenerPoke();
         
     }, []) 
 
@@ -54,122 +57,67 @@ const PokeDetail = () => {
 
             :
 
-            <div id="main_detail_container" className="mt-5">
+                <div id="main_detail_container" className="mt-5 mb-5">
 
-            {
-                showNotification ?
-
-                <div class="alert alert-primary alert-dismissible fade show m-auto col-md-4" role="alert">
-                    <strong >{message}</strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                    :
-
-                    ''
-            }
             
+                    <Fragment>
 
-                <div className="col-md-7 col-lg-8 col-xl-4 p-3 m-auto">
-                    
-                    <div className="profile-card-1">
-                    
-                        <div className="img" style={{height: '160px'}} >
-                            <img style={{height: '250px'}} src={hero.image.url}/>
-                        </div>
-
-                        <div className="mid-section mid-section-detail" style={{margin:'140px 0px 0px 0px'}}>
-                            <div className="name">
-                                {hero.name}
-                            </div>
-
-                            <div className="col description mt-1">
-
-                                {/*ALIAS*/}
-                                <div id="Alias" className="col">
-                                    <p><strong> Alias: </strong></p>
-                                        <p>
-                                            {
-                                                hero.biography.aliases.map((alias) =>
-                                                    <span>{alias + ' / '}</span>
-                                                )
-
-                                            }
-                                        </p> 
+                        <div className='col-md-2' style={{margin:'auto'}}>
+                            <div className="profile-card-1" style={{backgroundColor:'rgba(210, 57, 57, 0.937)'}}>
+                            
+                                <div className="img">
+                                    <img src={poke.sprites.front_default} style={{width:'150px'}}/>
                                 </div>
 
-                                {/*PESO-ALTURA*/}
-                                <div id="" className="row">
-                                    <div className='col'>
-                                        <p><strong> Peso: </strong></p>
-                                        <p>
-                                            <span>{hero.appearance.weight[0]} / {hero.appearance.weight[1]}</span>
-                                        </p> 
+                                {/* <div className="popup"></div> */}
+                                <div className="mid-section" style={{backgroundColor:'rgba(210, 57, 57, 0.937)'}}>
+                                    <div className="name mt-2">
+                                        {poke.name}
                                     </div>
-                                    
-                                    <div className='col'>
-                                        <p><strong> Altura: </strong></p>
-                                        <p>
-                                            <span>{hero.appearance.height[0]} / {hero.appearance.height[1]}</span>
-                                        </p> 
+                                    {/* <div className="col mt-1">
+                                        <strong style={{color:'orange'}}>Stats</strong>
+                                    </div> */}
+                                    <div className="row description mt-3">
+                                        <p>Detalle</p>
+                                        {/* <div className="col">
+                                            <p className="m-1">Intelligence:</p>
+                                            0
+                                            <p className="m-1">Strength:</p>
+                                                0
+                                            <p className="m-1">Speed: </p>
+                                            0
+                                        </div>
+                                        <div className="col">
+                                            <p className="m-1">Durability:</p>
+                                                0
+                                            <p className="m-1">Power:</p>
+                                            0
+                                            <p className="m-1">Combat:</p>
+                                                0
+                                        </div> */}
                                     </div>
-                                </div>
+                                    {/* <div className="line"></div> */}
 
-                                {/*OJOS-CABELLO*/}
-                                <div id="" className="row">
-                                    <div className='col'>
-                                        <p><strong> Ojos: </strong></p>
-                                        <p>
-                                            <span>{hero.appearance['eye-color']}</span>
-                                        </p> 
-                                    </div>
-                                    
-                                    <div className='col'>
-                                        <p><strong> Cabello: </strong></p>
-                                        <p>
-                                            <span>{hero.appearance['hair-color']}</span>
-                                        </p> 
-                                    </div>
-                                </div>  
+                                    <div className="stats">
 
-                                {/*LUGAR DE TRABAJO*/}
-                                <div id="Alias" className="col">
-                                    <p><strong> Lugar de Trabjo: </strong></p>
-                                        <p>
-                                            <span>{hero.work.base}</span>
-                                        </p> 
-                                </div>
-
-                                {/*LUGAR DE TRABAJO*/}
-                                <div id="Alias" className="col">
-                                    <p><strong> Alignment: </strong></p>
-                                        <p>
-                                            <span>{hero.biography.alignment}</span>
-                                        </p> 
-                                </div>
+                                    <form onSubmit={handleSubmit}>
+                                            <button className="btn btn-success">Agregar al Equipo</button>
+                                        </form>
                                 
-                            </div>
-                            <div className="line"></div>
-
-                            <div className="stats m-5">
-                                
-
-                                <form onSubmit={handleSubmit}>
-                                    <button className="btn btn-success">Agregar al Equipo</button>
-                                </form>
-                                
-                            </div> 
+                                    </div> 
     
+                                </div>
+                        
+                            
+                            </div>
                         </div>
-                
-                    
-                    </div>
-                </div>
-            </div>
 
-        }
+            
+                    </Fragment>
+
+                </div>
+
+            }
 
         </Fragment>
 
